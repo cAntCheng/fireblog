@@ -214,7 +214,7 @@ fireblogServices.factory("AuthService", ["$q", "$window", "$location", "$firebas
             if(authData){
                 // console.log("User "+authData.uid+" is logged in with "+authData.provider);
                 uid = authData.uid;
-                if(uid == CONFIG_UID){
+                if(CONFIG_UID == "" || uid == CONFIG_UID){
                     isLoggedIn = true;
                     var user = $firebaseObject(ref.child('users').child(authData.uid));
                     user.$loaded().then(function(){
@@ -298,7 +298,7 @@ fireblogServices.factory("AuthService", ["$q", "$window", "$location", "$firebas
                 var deferred = $q.defer();
 
                 if (isLoggedIn) {
-                    if(uid!=CONFIG_UID){
+                    if(CONFIG_UID!=""&&uid!=CONFIG_UID){
                         deferred.reject();
                     }else{
                         deferred.resolve();
