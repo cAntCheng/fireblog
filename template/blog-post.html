@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1 style="color:white;">{{$parent.option.username==undefined?"新用户":$parent.option.username}}</h1>
+                        <h1 style="color:white;">{{$parent.option.username==undefined?$parent.l['new_user']:$parent.option.username}}</h1>
                         <hr class="small">
-                        <span class="subheading">{{$parent.option.motto==undefined?"Welcome New User.":$parent.option.motto}}</span>
+                        <span class="subheading">{{$parent.option.motto==undefined?$parent.l['welcome']:$parent.option.motto}}</span>
                     </div>
                 </div>
             </div>
@@ -19,37 +19,37 @@
     <article>
         <div class="container">
             <p class="text-center">
-                <h3>写文章：</h3>
+                <h3>{{$parent.l['post_blog']}}:</h3>
             </p>
             <hr>
-        	<input ng-model="title" type="text" class="form-control" placeholder="请输入标题" style="border:2px solid rgb(41,41,41)">
+        	<input ng-model="title" type="text" class="form-control" placeholder="$parent.l['title_input_placeholder']" style="border:2px solid rgb(41,41,41)">
         	<hr>
             
             <div class="row">
               <div class="col-lg-6">
                 <div class="input-group">
                   <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">分类： <span class="caret"></span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{$parent.l['category']}}: <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li ng-repeat="(key, value) in allCats">
                             <a href="" ng-click="selectCat(key)">{{key}}</a>
                         </li>
                     </ul>
                   </div><!-- /btn-group -->
-                  <input type="text" class="form-control" aria-label="..." ng-model="cat" placeholder="你可以选择列表中的分类，也可以输入新的分类">
+                  <input type="text" class="form-control" aria-label="..." ng-model="cat" placeholder="{{$parent.l['category_input_placeholder']}}">
                 </div><!-- /input-group -->
               </div><!-- /.col-lg-6 -->
               <div class="col-lg-6">
                 <div class="input-group">
                   <div class="input-group-btn">
-                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">标签： <span class="caret"></span></button>
+                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{$parent.l['tag']}}: <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li ng-repeat="(key, value) in allTags">
                             <a href="" ng-click="addTag(key)">{{key}}</a>
                         </li>
                     </ul>
                   </div><!-- /btn-group -->
-                  <input type="text" class="form-control" aria-label="..." ng-model="tags" placeholder="请用空格分开标签">
+                  <input type="text" class="form-control" aria-label="..." ng-model="tags" placeholder="{{$parent.l['tag_input_placeholder']}}">
                 </div><!-- /input-group -->
               </div><!-- /.col-lg-6 -->
             </div><!-- /.row -->

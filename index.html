@@ -61,28 +61,28 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right" ng-if="!AuthService.isLoggedIn()">
                     <li>
-                        <a href="#/" id="home_link">主页</a>
+                        <a href="#/" id="home_link">{{l['home']}}</a>
                     </li>
                     <li>
-                        <a href="#/archives" id="archives_link">归档</a>
+                        <a href="#/archive" id="archives_link">{{l['archive']}}</a>
                     </li>
                     <li>
-                        <a href="#/cats" id="cats_link">分类</a>
+                        <a href="#/cats" id="cats_link">{{l['category']}}</a>
                     </li>
                     <li>
-                        <a href="#/tags" id="tags_link">标签</a>
+                        <a href="#/tags" id="tags_link">{{l['tag']}}</a>
                     </li>
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right" ng-if="AuthService.isLoggedIn()">
                     <li>
-                        <a href="#/admin/config" id="config_link">配置</a>
+                        <a href="#/admin/config" id="config_link">{{l['config']}}</a>
                     </li>
                     <li>
-                        <a href="#/admin/archives" id="archives_link">归档</a>
+                        <a href="#/admin/archive" id="archives_link">{{l['archive']}}</a>
                     </li>
                     <li>
-                        <a href="" ng-click="AuthService.logout()">注销</a>
+                        <a href="" ng-click="AuthService.logout()">{{l['logout']}}</a>
                     </li>
                 </ul>
             </div>
@@ -164,9 +164,11 @@
      
 
     <script src="./app/config.js"></script>
+    <script src="./app/language.js"></script>
     <script src="./app/app.js"></script>
     <script src="./app/controllers.js"></script>
     <script src="./app/services.js"></script>
+    <script src="./app/filters.js"></script>
 
 </body>
 

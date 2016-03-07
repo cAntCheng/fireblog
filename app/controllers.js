@@ -4,10 +4,16 @@
 
 var fireblogControllers = angular.module('fireblogControllers', []);
 
-fireblogControllers.controller('OptionCtrl', ['$scope', "OptionService", "AuthService", 
+fireblogControllers.controller('OptionCtrl', ['$scope', "OptionService", "AuthService",
     function ($scope, OptionService, AuthService){
         $scope.option =  OptionService.basic();
         $scope.AuthService = AuthService;
+
+        $scope.option.$loaded().then(function () {
+            $scope.l = CONFIG_LANG[$scope.option.language==undefined?"en":$scope.option.language];
+        });
+
+
     }
 ]);
 
@@ -315,6 +321,7 @@ fireblogControllers.controller('ConfigCtrl', ['$scope', "$window", "AuthService"
             $scope.twitter = basic.twitter;
             $scope.weibo = basic.weibo;
             $scope.weibo_link = basic.weibo_link;
+            $scope.language = basic.language;
         });
 
         $scope.AuthService = AuthService;
@@ -325,6 +332,7 @@ fireblogControllers.controller('ConfigCtrl', ['$scope', "$window", "AuthService"
             basic.username = $scope.username;
             basic.motto = $scope.motto;
             basic.navbar_text = $scope.navbar_text;
+            basic.language = $scope.language=="zh"||$scope.language=="en"?$scope.language:"en";
             // basic.github = $scope.github;
             basic.facebook = $scope.facebook;
             basic.twitter = $scope.twitter;

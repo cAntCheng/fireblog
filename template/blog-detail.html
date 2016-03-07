@@ -10,7 +10,7 @@
                         <a href="#/cat={{blog.cat}}">
                             <h2 class="subheading">{{blog.cat}}</h2>
                         </a>
-                        <span class="meta">发布于 {{blog.date | date:"yyyy-MM-dd @ H:mm"}}</span>
+                        <span class="meta">{{$parent.l['published_at']}} {{blog.date | date:"yyyy-MM-dd @ H:mm"}}</span>
                     </div>
                 </div>
             </div>

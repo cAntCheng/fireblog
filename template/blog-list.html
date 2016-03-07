@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1 style="color:white;">{{$parent.option.username==undefined?"新用户":$parent.option.username}}</h1>
+                        <h1 style="color:white;">{{$parent.option.username==undefined?$parent.l['new_user']:$parent.option.username}}</h1>
                         <hr class="small">
-                        <span class="subheading">{{$parent.option.motto==undefined?"Welcome New User.":$parent.option.motto}}</span>
+                        <span class="subheading">{{$parent.option.motto==undefined?$parent.l['welcome']:$parent.option.motto}}</span>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                             <a href="#/tag={{tag}}">{{tag}}</a>
                         </span>
                     </p>
-                    <p class="post-meta">发布于 {{blogs[count-1-($index+(current_page-1)*10)].date | date:"yyyy-MM-dd @ h:mma"}}</p>
+                    <p class="post-meta">{{$parent.l['published_at']}} {{blogs[count-1-($index+(current_page-1)*10)].date | date:"yyyy-MM-dd @ h:mma"}}</p>
                     <!-- <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on {{blog.date}}</p> -->
                     <!-- 此处最好修改一下 -->
                     <hr>
@@ -43,10 +43,10 @@
                 <!-- Pager -->
                 <ul class="pager">
                     <li class="previous" ng-if="hasPrev()">
-                        <a href="" ng-click="prevPage()">← Previous Posts</a>
+                        <a href="" ng-click="prevPage()">← {{$parent.l['prev_page']}}</a>
                     </li>
                     <li class="next" ng-if="hasNext()">
-                        <a href="" ng-click="nextPage()">Older Posts &rarr;</a>
+                        <a href="" ng-click="nextPage()">{{$parent.l['next_page']}} &rarr;</a>
                     </li>
                 </ul>
             </div>

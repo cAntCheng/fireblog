@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1 style="color:white;">Categories</h1>
+                        <h1 style="color:white;">{{$parent.l['categories']}}</h1>
                         <hr class="small">
-                        <span class="subheading">You are categorized as a human : )</span>
+                        <span class="subheading">{{$parent.l['subheading_category']}}</span>
                     </div>
                 </div>
             </div>
@@ -20,8 +20,6 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <!-- <p class="text-center"><h3>CATEGORIES</h3></p>
-                    <hr> -->
                     <p class="post-meta">
                         <span ng-repeat="(key, value) in cats">
                             <a href="#/cat={{key}}" style="font-weight:300px;font-size:{{(BlogService.getCatMax()!=1&&tags.length>1)?(value.count/BlogService.getCatMax()*(24-14)+14):18}}px;">{{key}} ({{value.count}})</a>

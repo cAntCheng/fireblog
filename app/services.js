@@ -258,6 +258,7 @@ fireblogServices.factory("AuthService", ["$q", "$window", "$location", "$firebas
                             newUser['options']['basic']['sitename'] = "MY FIRE BLOG";
                             newUser['options']['basic']['motto'] = "Let's make some noise.";
                             newUser['options']['basic']['navbar_text'] = "NEW USER";
+                            newUser['options']['basic']['language'] = "en";
                             newUser['options']['basic']['github'] = authData.github.username;
                             newUser['options']['basic']['facebook'] = "";
                             newUser['options']['basic']['twitter'] = "";

@@ -8,6 +8,7 @@ var fireblogApp = angular.module('fireblogApp', [
     
     'fireblogControllers',
     'fireblogServices',
+    'fireblogFilters',
 ]);
 
 fireblogApp.config(function($routeProvider) {
@@ -20,8 +21,8 @@ fireblogApp.config(function($routeProvider) {
 			templateUrl: '../template/blog-detail.html',
 			controller: 'BlogDetailCtrl'
 		}).
-		when('/archives', {
-			templateUrl: '../template/archives.html',
+		when('/archive', {
+			templateUrl: '../template/archive.html',
 			controller: 'ArchiveCtrl'
 		}).
 		when('/cats', {
@@ -53,8 +54,8 @@ fireblogApp.config(function($routeProvider) {
             	}
           	},
 		}).
-		when('/admin/archives', {
-			templateUrl: '../template/archives.html',
+		when('/admin/archive', {
+			templateUrl: '../template/archive.html',
 			controller: 'ArchiveCtrl',
 			resolve: {
           		permission: function (AuthService) {

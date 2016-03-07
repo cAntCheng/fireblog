@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1 style="color:white;">{{$parent.option.username==undefined?"新用户":$parent.option.username}}</h1>
+                        <h1 style="color:white;">{{$parent.option.username==undefined?$parent.l['new_user']:$parent.option.username}}</h1>
                         <hr class="small">
-                        <span class="subheading">{{$parent.option.motto==undefined?"Welcome New User.":$parent.option.motto}}</span>
+                        <span class="subheading">{{$parent.option.motto==undefined?$parent.l['welcome']:$parent.option.motto}}</span>
                     </div>
                 </div>
             </div>
@@ -20,71 +20,78 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-preview">
-                    <p class="text-center"><h3>CONFIGS</h3></p>
+                    <p class="text-center"><h3>{{$parent.l['configs']}}</h3></p>
                     <hr>
                     <p class="post-meta">
-                        你的 uid 是：{{AuthService.getUid()}}。
-                        请修改 app 文件夹中的 config.js 文件。
+                        {{$parent.l['your_uid_is']}}: {{AuthService.getUid()}}。
+                        <br>
+                        {{$parent.l['plese_edit_the_file_in_folder_app']}}: config.js
                     </p>
                     <hr>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <label for="sitename" class="col-sm-2 control-label">站点名称</label>
+                            <label for="sitename" class="col-sm-2 control-label">{{$parent.l['sitename']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="sitename" placeholder="请输入站点名称" ng-model="sitename">
+                                <input type="text" class="form-control" id="sitename" placeholder="{{$parent.l['sitename_input_placeholder']}}" ng-model="sitename">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="username" class="col-sm-2 control-label">站长名</label>
+                            <label for="username" class="col-sm-2 control-label">{{$parent.l['username']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="username" placeholder="请输入站长名" ng-model="username">
+                                <input type="text" class="form-control" id="username" placeholder="{{$parent.l['username_input_placeholder']}}" ng-model="username">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="motto" class="col-sm-2 control-label">小标题</label>
+                            <label for="motto" class="col-sm-2 control-label">{{$parent.l['sub_title']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="motto" placeholder="请输入小标题" ng-model="motto">
+                                <input type="text" class="form-control" id="motto" placeholder="{{$parent.l['sub_title_input_placeholder']}}" ng-model="motto">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="navbar_text" class="col-sm-2 control-label">导航栏文字</label>
+                            <label for="navbar_text" class="col-sm-2 control-label">{{$parent.l['navbar_text']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="navbar_text" placeholder="请输入导航栏文字" ng-model="navbar_text">
+                                <input type="text" class="form-control" id="navbar_text" placeholder="{{$parent.l['navbar_text_input_placeholder']}}" ng-model="navbar_text">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="github" class="col-sm-2 control-label">Github 用户名</label>
+                            <label for="language" class="col-sm-2 control-label">{{$parent.l['language']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="github" placeholder="请输入 Github 用户名" ng-model="github" disabled>
+                                <input type="text" class="form-control" id="language" placeholder="{{$parent.l['language']}}" ng-model="language">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="facebook" class="col-sm-2 control-label">Facebook 链接</label>
+                            <label for="github" class="col-sm-2 control-label">{{$parent.l['github_account']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="facebook" placeholder="请输入 Facebook 主页链接" ng-model="facebook">
+                                <input type="text" class="form-control" id="github" placeholder="{{$parent.l['github_account_input_placeholder']}}" ng-model="github" disabled>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="twitter" class="col-sm-2 control-label">Twitter 链接</label>
+                            <label for="facebook" class="col-sm-2 control-label">{{$parent.l['facebook_page']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="twitter" placeholder="请输入 Twitter 主页链接" ng-model="twitter">
+                                <input type="text" class="form-control" id="facebook" placeholder="{{$parent.l['facebook_page_input_placeholder']}}" ng-model="facebook">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="weibo" class="col-sm-2 control-label">微博名</label>
+                            <label for="twitter" class="col-sm-2 control-label">{{$parent.l['twitter_page']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="" placeholder="请输入微博名" ng-model="weibo">
+                                <input type="text" class="form-control" id="twitter" placeholder="{{$parent.l['twitter_page_input_placeholder']}}" ng-model="twitter">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="weibo_link" class="col-sm-2 control-label">微博链接</label>
+                            <label for="weibo" class="col-sm-2 control-label">{{$parent.l['weibo_account']}}</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="" placeholder="请输入微博主页链接" ng-model="weibo_link">
+                                <input type="text" class="form-control" id="" placeholder="{{$parent.l['weibo_account_input_placeholder']}}" ng-model="weibo">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="weibo_link" class="col-sm-2 control-label">{{$parent.l['weibo_page']}}</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="" placeholder="{{$parent.l['weibo_page_input_placeholder']}}" ng-model="weibo_link">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default" ng-click="editBasicOption()">保存修改</button>
+                                <button type="submit" class="btn btn-default" ng-click="editBasicOption()">{{$parent.l['save']}}</button>
                             </div>
                         </div>
                     </form>

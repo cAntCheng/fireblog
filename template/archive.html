@@ -6,9 +6,9 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1 style="color:white;">Archives</h1>
+                        <h1 style="color:white;">{{$parent.l['archive']}}</h1>
                         <hr class="small">
-                        <span class="subheading">A year wise archive collection.</span>
+                        <span class="subheading">{{$parent.l['subheading_archive']}}</span>
                     </div>
                 </div>
             </div>
@@ -31,8 +31,8 @@
                     <li class="row">
                         <div class="col-sm-9">
                             <a href="#/p={{blog.$id}}">{{blog.title}}</a>
-                            <a href="#/admin/edit={{blog.$id}}" style="color: #808080;font-family: 'Lora', 'Times New Roman', serif;font-size: 18px;font-style: italic;margin-top: 0;margin-bottom: 18px;" ng-if="AuthService.isLoggedIn()">edit</a>
-                            <a href="" ng-click="deleteBlog(blog)" style="color: #808080;font-family: 'Lora', 'Times New Roman', serif;font-size: 18px;font-style: italic;margin-top: 0;margin-bottom: 18px;" ng-if="AuthService.isLoggedIn()">delete</a>
+                            <a href="#/admin/edit={{blog.$id}}" style="color: #808080;font-family: 'Lora', 'Times New Roman', serif;font-size: 18px;font-style: italic;margin-top: 0;margin-bottom: 18px;" ng-if="AuthService.isLoggedIn()">{{$parent.l['edit']}}</a>
+                            <a href="" ng-click="deleteBlog(blog)" style="color: #808080;font-family: 'Lora', 'Times New Roman', serif;font-size: 18px;font-style: italic;margin-top: 0;margin-bottom: 18px;" ng-if="AuthService.isLoggedIn()">{{$parent.l['delete']}}</a>
                         </div>
                         <div class="col-sm-3 text-muted">
                             <time>{{blog.date | date:"MM-dd @ H:mm"}}</time>
