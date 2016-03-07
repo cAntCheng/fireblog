@@ -85,6 +85,20 @@ fireblogServices.factory("BlogService", ["$firebaseArray", "$firebaseObject",
             }
         }
         
+        function refreshData(){
+            allTags = {};
+            allCats = {};
+            tagMax = 1;
+            catMax = 1;
+            allBlogByTag = {};
+            allBlogByCat = {};
+            var ref = new Firebase("https://github-pages.firebaseio.com/users/"+CONFIG_UID+"/blogs");
+            cacheData =  $firebaseArray(ref);
+            
+            // console.log(cacheData);
+            setAllTagsAndCats(cacheData);
+        }
+        
         function getObjectByID(id){
             var ref = new Firebase("https://github-pages.firebaseio.com/users/"+CONFIG_UID+"/blogs/"+id);
             return $firebaseObject(ref);
@@ -149,6 +163,10 @@ fireblogServices.factory("BlogService", ["$firebaseArray", "$firebaseObject",
             getCatMax: function() {
                 // console.log("catMax:"+catMax);
                 return catMax;
+            },
+            // 新增、修改文章内容后需要更新缓存数据
+            refreshData: function() {
+                return refreshData();
             }
         };
     }

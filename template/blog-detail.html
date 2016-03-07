@@ -10,7 +10,7 @@
                         <a href="#/cat={{blog.cat}}">
                             <h2 class="subheading">{{blog.cat}}</h2>
                         </a>
-                        <span class="meta">发布于 {{blog.date | date:"MM/dd/yyyy @ h:mma"}}</span>
+                        <span class="meta">发布于 {{blog.date | date:"yyyy-MM-dd @ H:mm"}}</span>
                     </div>
                 </div>
             </div>
@@ -20,7 +20,21 @@
     <!-- Post Content -->
     <article>
         <div class="container">
-            <div id="markdown" ng-bind-html="trustAsHtml(blog.content)">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+                    <div class="post-content" ng-bind-html="trustAsHtml(blog.content)">
+
+
+                    </div>
+
+                    <!-- 多说评论框 start -->
+                    <div id="comment-box" ng-if="CONFIG_DUOSHUO!=''">
+                        {{toggleDuoshuoComments('#comment-box',blog);""}}
+                    </div>
+                    <script ng-if="CONFIG_DUOSHUO!=''">var duoshuoQuery = {short_name:CONFIG_DUOSHUO};</script>
+                    <script src="http://static.duoshuo.com/embed.js"></script>
+                </div>
             </div>
         </div>
     </article>

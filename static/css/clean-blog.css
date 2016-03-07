@@ -16,6 +16,12 @@ p {
 p a {
   text-decoration: underline;
 }
+.post-meta>span>a{
+  text-decoration: none;
+}
+.copyright>a{
+  text-decoration: none;
+}
 h1,
 h2,
 h3,

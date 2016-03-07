@@ -68,10 +68,21 @@ fireblogControllers.controller('BlogListCtrl', ['$scope', "BlogService", "Option
 ]);
 
 
-fireblogControllers.controller('BlogDetailCtrl', ['$scope', "BlogService", "OptionService", "$sce", "$routeParams",
-	function ($scope, BlogService, OptionService, $sce, $routeParams){
+fireblogControllers.controller('BlogDetailCtrl', ['$scope', "$location", "BlogService", "OptionService", "$sce", "$routeParams",
+	function ($scope, $location, BlogService, OptionService, $sce, $routeParams){
         $scope.trustAsHtml = $sce.trustAsHtml;
+        $scope.location = $location;
         $scope.blogs =  BlogService.getAll();
+
+        $scope.toggleDuoshuoComments = function(container,blog){
+            var el = document.createElement('div');//该div不需要设置class="ds-thread"
+            el.setAttribute('data-thread-key', blog.$id);//必选参数
+            el.setAttribute('data-url', $location.absUrl());//必选参数
+            el.setAttribute('data-title', blog.title);//可选参数
+            DUOSHUO.EmbedThread(el);
+            $(container).html("");
+            $(container).append(el);
+        }
         
         $scope.blogs.$loaded().then(function () {
             $scope.blog = $scope.blogs.$getRecord($routeParams.blogId);
@@ -135,6 +146,7 @@ fireblogControllers.controller('BlogPostCtrl', ['$scope', "OptionService", "Blog
                 $scope.title = "";
                 $(editor.getElement('editor').body).html("")
 				$($(editor.getElement('previewer').body).children()[0]).html("");
+                BlogService.refreshData();
                 $window.location.href = "#/p="+id
             }
 	    };
@@ -205,6 +217,7 @@ fireblogControllers.controller('BlogEditCtrl', ['$scope', "OptionService", "Blog
                 blog.tags = tags;
                 blog.$save();
                 $(editor.getElement('editor').body).html("");
+                BlogService.refreshData();
                 $window.location.href = "#/p="+blog.$id;
             }
 	    };
@@ -232,6 +245,8 @@ fireblogControllers.controller('CatOneCtrl', ['$scope', "BlogService", "OptionSe
 	function ($scope, BlogService, OptionService, $routeParams){
         $scope.cats = BlogService.getAllByCat();
         $scope.catname = $routeParams.catname;
+
+        $scope.years = {};
         
         var page_name = $routeParams.catname;
         var site_name = OptionService.setSiteTitle(page_name);
@@ -255,6 +270,8 @@ fireblogControllers.controller('TagOneCtrl', ['$scope', "BlogService", "OptionSe
 	function ($scope, BlogService, OptionService, $routeParams){
         $scope.tags = BlogService.getAllByTag($routeParams.tagname);
         $scope.tagname = $routeParams.tagname;
+
+        $scope.years = {};
         
         var page_name = $routeParams.tagname;
         var site_name = OptionService.setSiteTitle(page_name);
@@ -265,6 +282,8 @@ fireblogControllers.controller('TagOneCtrl', ['$scope', "BlogService", "OptionSe
 fireblogControllers.controller('ArchiveCtrl', ['$scope', "BlogService", "OptionService",
 	function ($scope, BlogService, OptionService){
         $scope.blogs = BlogService.getAll();
+
+        $scope.years = {};
         
         $scope.deleteBlog = function(blog) {
             $scope.blogs.$remove(blog);
