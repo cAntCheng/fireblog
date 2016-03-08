@@ -5,9 +5,9 @@ intro
 ---
 A github pages Blog system powered by AngularJS and Firebase and Bootstrap.
 
-[中文说明](http://cheng-kang.github.io/#/p=1457398271740)
+- [中文说明](http://cheng-kang.github.io/#/p=1457398271740)
 
-[Instruction English Version](http://cheng-kang.github.io/#/p=1457399976958)
+- [Instruction English Version](http://cheng-kang.github.io/#/p=1457399976958)
 
 [AngularJS](https://angularjs.org/)
 
