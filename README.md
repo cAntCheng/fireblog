@@ -3,6 +3,8 @@ fireblog
 
 intro
 ---
+Live demo: [FIREBLOG](https://cheng-kang.github.io/fireblog/#/)
+
 A github pages Blog system powered by AngularJS and Firebase and Bootstrap.
 
 - [中文说明](http://cheng-kang.github.io/#/p=1457398271740)
